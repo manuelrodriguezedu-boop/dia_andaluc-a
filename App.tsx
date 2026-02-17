@@ -543,7 +543,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-4 text-center">
       <div className="w-16 h-16 bg-andalucia rounded-2xl flex items-center justify-center text-white font-black text-3xl mx-auto mb-8 shadow-xl shadow-green-900/20">A</div>
       <h3 className="text-3xl font-brand font-black mb-2 tracking-tighter">Gincana Digital 2024</h3>
-      <p className="text-slate-500 font-bold mb-8 uppercase tracking-widest text-sm">IES Sierra de los Filabres • Purchena</p>
+      <p className="text-slate-500 font-bold mb-8 uppercase tracking-widest text-sm">IES Sierra de los Filabres • Serón</p>
       
       <div className="flex justify-center gap-6 mb-12">
         <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center hover:bg-andalucia transition-all cursor-pointer">
