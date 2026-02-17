@@ -20,7 +20,8 @@ import {
   Star,
   Download,
   Menu,
-  X
+  X,
+  BookOpen
 } from 'lucide-react';
 import { PROVINCES, IDEA_BANK, INFOGRAPHIC_RUBRIC, VIDEO_RUBRIC } from './constants';
 import { Province, Category, ChallengeIdea } from './types';
@@ -448,12 +449,6 @@ const Evaluation = () => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-2xl cursor-pointer border-none outline-none">
-            <Download size={24} /> Descargar Hojas de Jurado (PDF)
-          </button>
-        </div>
       </div>
     </section>
   );
@@ -465,7 +460,7 @@ const SubmissionChecklist = () => {
     quality: false,
     saved: false,
     filename: false,
-    email: false
+    classroom: false
   });
 
   const toggleCheck = (id: string) => {
@@ -490,7 +485,7 @@ const SubmissionChecklist = () => {
               { id: 'quality', text: '¿La obra se ve/escucha bien y se entiende el contenido?' },
               { id: 'saved', text: '¿He guardado el archivo correctamente en mi ordenador?' },
               { id: 'filename', text: '¿El nombre del archivo deja claro cuál es mi tema? (Ej: Aceite_Jaen.png)' },
-              { id: 'email', text: '¿He enviado el correo adjunto a mrodpen150@g.educaand.es?' },
+              { id: 'classroom', text: '¿He subido el archivo a la tarea correspondiente en Google Classroom?' },
             ].map(item => (
               <button 
                 key={item.id}
@@ -514,22 +509,27 @@ const SubmissionChecklist = () => {
           <div className="text-center">
             <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100 mb-10">
               <p className="text-blue-900 font-black text-xl mb-2 flex items-center justify-center gap-2">
-                <Mail className="text-blue-600" /> Correo de entrega:
+                <BookOpen className="text-blue-600" /> Entrega del Proyecto:
               </p>
-              <code className="text-2xl font-black text-blue-700 bg-white px-4 py-2 rounded-lg border border-blue-200">mrodpen150@g.educaand.es</code>
+              <div className="text-2xl font-black text-blue-700 bg-white px-8 py-3 rounded-2xl border border-blue-200 inline-block shadow-sm">
+                Google Classroom
+              </div>
             </div>
             
-            <a 
-              href={allChecked ? "mailto:mrodpen150@g.educaand.es" : "#"}
-              onClick={(e) => !allChecked && e.preventDefault()}
-              className={`inline-flex items-center gap-4 px-12 py-6 rounded-3xl font-black text-2xl shadow-2xl transition-all border-none no-underline ${
+            <button 
+              onClick={() => {
+                if (allChecked) {
+                  alert("¡Excelente! Asegúrate de haber subido tu archivo a la tarea de Classroom.");
+                }
+              }}
+              className={`inline-flex items-center gap-4 px-12 py-6 rounded-3xl font-black text-2xl shadow-2xl transition-all border-none ${
                 allChecked 
                 ? 'bg-andalucia text-white hover:scale-105 hover:bg-green-700 active:scale-95 cursor-pointer' 
                 : 'bg-slate-300 text-slate-500 cursor-not-allowed opacity-50'
               }`}
             >
               ¡Misión Cumplida: Enviar! <Rocket />
-            </a>
+            </button>
             {!allChecked && <p className="mt-6 text-sm font-black text-red-500 uppercase tracking-widest animate-bounce">Faltan puntos por revisar en el Check-list</p>}
           </div>
         </div>
@@ -542,7 +542,7 @@ const Footer = () => (
   <footer className="bg-slate-900 py-16 text-white border-t border-white/5 relative z-10">
     <div className="max-w-7xl mx-auto px-4 text-center">
       <div className="w-16 h-16 bg-andalucia rounded-2xl flex items-center justify-center text-white font-black text-3xl mx-auto mb-8 shadow-xl shadow-green-900/20">A</div>
-      <h3 className="text-3xl font-brand font-black mb-2 tracking-tighter">Gincana Digital 2024</h3>
+      <h3 className="text-3xl font-brand font-black mb-2 tracking-tighter">Gincana Digital 2026</h3>
       <p className="text-slate-500 font-bold mb-8 uppercase tracking-widest text-sm">IES Sierra de los Filabres • Serón</p>
       
       <div className="flex justify-center gap-6 mb-12">
